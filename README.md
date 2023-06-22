@@ -32,5 +32,11 @@ Usually, only _node_modules_ are present. Add _lib_.
 Then, re-launch VS Code
 
 
+## Prerequisite 
 
+### Install libraries
+
+```sh
+forge install smartcontractkit/chainlink-brownie-contracts
+```
 
