@@ -1,6 +1,6 @@
 # Introduction
 
-## Tips
+## Tips
 
 ### Autosave
 
