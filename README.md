@@ -126,6 +126,11 @@ source .env
 forge coverage --fork-url $SEPOLIA_RPC_URL
 ```
 
+## Remarks 
+
+
+Every line of code before _startBroadcast_ does not cost any gas as it's not a real Tx !
+Every line of code aftre _startBroadcast_ does cost any gas as it's part of a real Tx !
 
 # Lesson #1
 
@@ -162,6 +167,36 @@ Run :
 ```sh
 forge test --match-test test1.* -vv --fork-url $SEPOLIA_RPC_URL
 ```
+
+# Lesson #3
+
+We are dependant of the SEPOLIA Network so far.
+But what if we want to use our local network like _Anvil_ ?
+In other word, we want to find a way to launch : 
+
+```sh
+forge test --match-test test1.* -vv --fork-url $SEPOLIA_RPC_URL
+```
+
+or 
+
+```sh
+forge test --match-test test1.* -vv --fork-url $MAINNET_RPC_URL
+```
+
+without changing everything in our code.
+
+Solution : Create a helperConfig that can switch your network 
+by the integrated variable _block.chainid_
+
+How can we do if we want to deploy on the local network as no price feed exists for the local network ??
+
+For that purpose, wa have to _mock_ our priceFeed.
+We have to create a fake PriceFeed contract and use this address.
+
+
+
+
 
 
 
